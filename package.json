@@ -1,0 +1,35 @@
+{
+  "name": "task-manager-api",
+  "version": "1.0.0",
+  "description": "Simple Task Management API for CAB432 Assignment 2",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "@aws-sdk/client-cognito-identity-provider": "^3.400.0",
+    "@aws-sdk/client-dynamodb": "^3.400.0",
+    "@aws-sdk/lib-dynamodb": "^3.400.0",
+    "@aws-sdk/client-s3": "^3.400.0",
+    "@aws-sdk/s3-request-presigner": "^3.400.0",
+    "@aws-sdk/client-ssm": "^3.400.0",
+    "@aws-sdk/client-secrets-manager": "^3.400.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwk-to-pem": "^2.0.5",
+    "axios": "^1.5.0",
+    "multer": "^2.0.2",
+    "uuid": "^9.0.0",
+    "redis": "^4.6.8",
+    "ws": "^8.13.0",
+    "express-ws": "^5.0.2",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

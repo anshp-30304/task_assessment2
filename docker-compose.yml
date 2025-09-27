@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  task-manager-api:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - AWS_REGION=${AWS_REGION:-us-east-1}
+      - COGNITO_USER_POOL_ID=${COGNITO_USER_POOL_ID}
+      - COGNITO_CLIENT_ID=${COGNITO_CLIENT_ID}
+      - COGNITO_CLIENT_SECRET=${COGNITO_CLIENT_SECRET}
+      - DYNAMODB_TASKS_TABLE=${DYNAMODB_TASKS_TABLE}
+      - DYNAMODB_ASSIGNMENTS_TABLE=${DYNAMODB_ASSIGNMENTS_TABLE}
+      - S3_BUCKET=${S3_BUCKET}
+      - REDIS_HOST=${REDIS_HOST}
+      - PORT=3000
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
